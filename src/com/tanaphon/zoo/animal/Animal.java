@@ -4,10 +4,13 @@ package com.tanaphon.zoo.animal;
  * Created by Tanaphon on 7/12/2016.
  */
 public abstract class Animal {
+    // สัตว์
+
     private String name;
     private String dateOfBirth;
     private String gender;
     private String id;
+
 
     public Animal(String dateOfBirth, String gender, String id) {
         this.dateOfBirth = dateOfBirth;
@@ -15,14 +18,17 @@ public abstract class Animal {
         this.id = id;
     }
 
-
-
-
     public Animal(String name, String dateOfBirth, String gender, String id) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "name=" + name + ", dateOfBirth=" + dateOfBirth +
+                ", gender=" + gender + ", id=" + id ;
     }
 
     public String getName() {
@@ -36,6 +42,9 @@ public abstract class Animal {
     public String getGender() {
         return gender;
     }
+
+    public String getId() {return id;}
+
 
     public void setName(String name) {
         this.name = name;
@@ -56,4 +65,6 @@ public abstract class Animal {
     public void sleep() {
         // นอนหลับ
     }
+
+
 }
