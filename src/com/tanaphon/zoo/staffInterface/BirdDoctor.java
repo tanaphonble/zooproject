@@ -5,5 +5,5 @@ package com.tanaphon.zoo.staffInterface;
  */
 public interface BirdDoctor {
     // หมอเฉพาะทาง สัตว์ปีก
-    public void birdRessfv();
+    public void superCureBird();
 }

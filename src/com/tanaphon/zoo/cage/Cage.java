@@ -1,5 +1,10 @@
 package com.tanaphon.zoo.cage;
 
+import com.tanaphon.zoo.animal.Animal;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Tanaphon on 7/13/2016.
  */
@@ -9,44 +14,83 @@ public class Cage {
     private float totalAreaMeterSquare;
     private float landAreaMeterSquare;
     private float waterAreaMeterSquare;
+    private int animalNumber = 0;
+    private String name;
+
+    private List<Animal> animals = new ArrayList<>();
+
+    public void importAnimal(Animal animal){
+        animals.add(animal);
+        this.animalNumber++;
+    }
+
+    // ยังไม่เสร็จ
+    public void exportAnimal(int amount){
+        this.animalNumber -= amount;
+    }
+
+    public Cage(float totalAreaMeterSquare, float landAreaMeterSquare, float waterAreaMeterSquare, String cageName) {
+        if (validArea(totalAreaMeterSquare, landAreaMeterSquare, waterAreaMeterSquare)) {
+            this.totalAreaMeterSquare = totalAreaMeterSquare;
+            this.landAreaMeterSquare = landAreaMeterSquare;
+            this.waterAreaMeterSquare = waterAreaMeterSquare;
+            this.name = cageName;
+            System.out.println(this.name+" is created.");
+        }else{
+            System.out.println("Can not create cage!");
+        }
+    }
+
+
+
+    @Override
+    public String toString() {
+        String member = "";
+        int i = 1;
+        for(Animal animal : animals){
+            //System.out.println("i: "+i+"size: "+animals.size());
+            if (i == animals.size()) member+=animal.getName();
+            else member+=animal.getName()+", ";
+            i++;
+        }
+        return "Cage Name="+name+", animals=[" + member +
+                "], name='" + name + '\'' +
+                ", animalNumber=" + animalNumber;
+    }
+
+    public void updateHumidity(){
+
+    }
+
+
+    public void updateTemperature(){}
+
+
+    public boolean validArea(float totalArea, float landArea, float waterArea) {
+        return (landArea + waterArea) == totalArea;
+    }
+
+    public String getName(){
+        return this.name;
+    }
 
     public float getHumidityPercentage() {
         return humidityPercentage;
-    }
-
-    public void setHumidityPercentage(float humidityPercentage) {
-        this.humidityPercentage = humidityPercentage;
     }
 
     public float getTemperatureFahrenheit() {
         return temperatureFahrenheit;
     }
 
-    public void setTemperatureFahrenheit(float temperatureFahrenheit) {
-        this.temperatureFahrenheit = temperatureFahrenheit;
-    }
-
     public float getTotalAreaMeterSquare() {
         return totalAreaMeterSquare;
-    }
-
-    public void setTotalAreaMeterSquare(float totalAreaMeterSquare) {
-        this.totalAreaMeterSquare = totalAreaMeterSquare;
     }
 
     public float getLandAreaMeterSquare() {
         return landAreaMeterSquare;
     }
 
-    public void setLandAreaMeterSquare(float landAreaMeterSquare) {
-        this.landAreaMeterSquare = landAreaMeterSquare;
-    }
-
     public float getWaterAreaMeterSquare() {
         return waterAreaMeterSquare;
-    }
-
-    public void setWaterAreaMeterSuare(float waterAreaMeterSuare) {
-        this.waterAreaMeterSquare = waterAreaMeterSuare;
     }
 }

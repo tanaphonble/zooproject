@@ -1,15 +1,17 @@
 package com.tanaphon.zoo.animal;
 
+import java.util.List;
+
 /**
  * Created by Tanaphon on 7/12/2016.
  */
 public abstract class Animal {
     // สัตว์
-
     private String name;
     private String dateOfBirth;
     private String gender;
     private String id;
+
 
 
     public Animal(String dateOfBirth, String gender, String id) {
@@ -67,4 +69,15 @@ public abstract class Animal {
     }
 
 
+    public void reproductive(){
+        // สืบพันธุ์
+    }
+
+    public void sick(){
+        // ป่วย
+    }
+
+    public void dead(){
+        // ตาย
+    }
 }

@@ -12,4 +12,9 @@ public class Reptile extends Animal {
     public Reptile(String name, String dateOfBirth, String gender, String id) {
         super(name, dateOfBirth, gender, id);
     }
+
+    public void crawl(){
+        // เลื้อย
+    }
+
 }

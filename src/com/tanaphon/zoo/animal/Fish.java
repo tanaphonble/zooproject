@@ -11,4 +11,8 @@ public class Fish extends Animal {
     public Fish(String name, String dateOfBirth, String gender, String id) {
         super(name, dateOfBirth, gender, id);
     }
+
+    public void swim(){
+        // ว่ายน้ำ
+    }
 }

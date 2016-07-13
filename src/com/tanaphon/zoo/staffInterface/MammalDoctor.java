@@ -5,4 +5,5 @@ package com.tanaphon.zoo.staffInterface;
  */
 public interface MammalDoctor {
     // หมอเฉพาะทาง สัตว์เลี้ยงลูกด้วยนม
+    public void superCureMammal();
 }

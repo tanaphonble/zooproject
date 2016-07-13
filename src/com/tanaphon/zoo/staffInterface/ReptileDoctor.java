@@ -5,4 +5,5 @@ package com.tanaphon.zoo.staffInterface;
  */
 public interface ReptileDoctor {
     // หมอเฉพาะทาง สัตว์เลี้ยงเลื้อยคลาน
+    public void superCureReptile();
 }
