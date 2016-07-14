@@ -5,10 +5,6 @@ package com.tanaphon.zoo.animal;
  */
 public class Reptile extends Animal {
     // สัตว์เลื้อยคลาน
-    public Reptile(String dateOfBirth, String gender, String id) {
-        super(dateOfBirth, gender, id);
-    }
-
     public Reptile(String name, String dateOfBirth, String gender, String id) {
         super(name, dateOfBirth, gender, id);
     }

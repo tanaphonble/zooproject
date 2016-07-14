@@ -19,13 +19,14 @@ public class Cage {
 
     private List<Animal> animals = new ArrayList<>();
 
-    public void importAnimal(Animal animal){
+    public void importAnimal(Animal animal) {
         animals.add(animal);
         this.animalNumber++;
     }
 
     // ยังไม่เสร็จ
-    public void exportAnimal(int amount){
+    public void exportAnimal(int amount) {
+
         this.animalNumber -= amount;
     }
 
@@ -35,42 +36,39 @@ public class Cage {
             this.landAreaMeterSquare = landAreaMeterSquare;
             this.waterAreaMeterSquare = waterAreaMeterSquare;
             this.name = cageName;
-            System.out.println(this.name+" is created.");
-        }else{
+            System.out.println(this.name + " is created.");
+        } else {
             System.out.println("Can not create cage!");
         }
     }
-
 
 
     @Override
     public String toString() {
         String member = "";
         int i = 1;
-        for(Animal animal : animals){
-            //System.out.println("i: "+i+"size: "+animals.size());
-            if (i == animals.size()) member+=animal.getName();
-            else member+=animal.getName()+", ";
+        for (Animal animal : animals) {
+            if (i == animals.size()) member += animal.getName()+"["+animal.getId()+"]";
+            else member += animal.getName() +"["+ animal.getId()+"]" + ", ";
             i++;
         }
-        return "Cage Name="+name+", animals=[" + member +
-                "], name='" + name + '\'' +
-                ", animalNumber=" + animalNumber;
+        return "Cage : " + name + " [" + member +
+                "]," + " Animal Number = " + animalNumber;
     }
 
-    public void updateHumidity(){
+    public void updateHumidity() {
 
     }
 
-
-    public void updateTemperature(){}
+    public void updateTemperature() {
+    }
 
 
     public boolean validArea(float totalArea, float landArea, float waterArea) {
         return (landArea + waterArea) == totalArea;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 

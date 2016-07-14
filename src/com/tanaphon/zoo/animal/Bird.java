@@ -5,9 +5,6 @@ package com.tanaphon.zoo.animal;
  */
 public class Bird extends Animal{
     // bird
-    public Bird(String dateOfBirth, String gender, String id) {
-        super(dateOfBirth, gender, id);
-    }
 
     public Bird(String name, String dateOfBirth, String gender, String id) {
         super(name, dateOfBirth, gender, id);

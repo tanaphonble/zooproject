@@ -11,14 +11,9 @@ public abstract class Animal {
     private String dateOfBirth;
     private String gender;
     private String id;
+    // normal 0 - 3 bad
+    private int sickLevel = 0;
 
-
-
-    public Animal(String dateOfBirth, String gender, String id) {
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.id = id;
-    }
 
     public Animal(String name, String dateOfBirth, String gender, String id) {
         this.name = name;
@@ -30,7 +25,7 @@ public abstract class Animal {
     @Override
     public String toString() {
         return "name=" + name + ", dateOfBirth=" + dateOfBirth +
-                ", gender=" + gender + ", id=" + id ;
+                ", gender=" + gender + ", id=" + id;
     }
 
     public String getName() {
@@ -45,10 +40,11 @@ public abstract class Animal {
         return gender;
     }
 
-    public String getId() {return id;}
+    public String getId() {
+        return id;
+    }
 
-
-    public void setName(String name) {
+    public void changeName(String name) {
         this.name = name;
     }
 
@@ -68,16 +64,15 @@ public abstract class Animal {
         // นอนหลับ
     }
 
-
-    public void reproductive(){
+    public void reproductive() {
         // สืบพันธุ์
     }
 
-    public void sick(){
+    public void sick() {
         // ป่วย
     }
 
-    public void dead(){
+    public void dead() {
         // ตาย
     }
 }

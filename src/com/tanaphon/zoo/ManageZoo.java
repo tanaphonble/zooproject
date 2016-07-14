@@ -8,11 +8,13 @@ import com.tanaphon.zoo.cage.Cage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by Tanaphon on 7/13/2016.
  */
 public class ManageZoo {
+    Scanner scanner = new Scanner(System.in);
     public static int inCage = 0;
     public static int outCage = 0;
     private List<Cage> cages = new ArrayList<>();
@@ -22,9 +24,32 @@ public class ManageZoo {
         return cages;
     }
 
-
     public ManageZoo() {
-        initializeZoo();
+
+    }
+
+    public void zooManagementSystem() {
+        int choice;
+        do {
+            System.out.println("1: Create Cage 2: Delete Cage 3: Add Animal 4: Remove Animal 5: Exit");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("1");
+                    break;
+                case 2:
+                    System.out.println("2");
+                    break;
+                case 3:
+                    System.out.println("3");
+                    break;
+                case 4:
+                    System.out.println("4");
+                    break;
+                default:
+                    System.out.println("Enter 1-4");
+            }
+        } while (choice != 5);
     }
 
     public void initializeZoo() {
@@ -55,8 +80,9 @@ public class ManageZoo {
         parrotCage.importAnimal(parrot2);
         bloodPythonCage.importAnimal(bloodPython);
 
-        for(Cage c : cages){
+        for (Cage c : cages) {
             System.out.println(c.toString());
         }
+
     }
 }

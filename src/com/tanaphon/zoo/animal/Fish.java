@@ -5,9 +5,6 @@ package com.tanaphon.zoo.animal;
  */
 public class Fish extends Animal {
     // สัตว์น้ำ
-    public Fish(String dateOfBirth, String gender, String id) {
-        super(dateOfBirth, gender, id);
-    }
     public Fish(String name, String dateOfBirth, String gender, String id) {
         super(name, dateOfBirth, gender, id);
     }
