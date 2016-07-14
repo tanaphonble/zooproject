@@ -19,7 +19,6 @@ public class ManageZoo {
     public static int outCage = 0;
     private List<Cage> cages = new ArrayList<>();
     private List<Animal> animals = new ArrayList<>();
-
     public List<Cage> getCages() {
         return cages;
     }
@@ -31,11 +30,12 @@ public class ManageZoo {
     public void zooManagementSystem() {
         int choice;
         do {
-            System.out.println("1: Create Cage 2: Delete Cage 3: Add Animal 4: Remove Animal 5: Exit");
+            System.out.println("1: Create Cage 2: Delete Cage 3: Add Animal 4: Remove Animal 5: About the Zoo 6: Exit");
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     System.out.println("1");
+                    this.createCage();
                     break;
                 case 2:
                     System.out.println("2");
@@ -46,10 +46,34 @@ public class ManageZoo {
                 case 4:
                     System.out.println("4");
                     break;
+                case 5:
+                    new ZooInformation().about();
+                    break;
+                case 6:
+                    System.exit(0);
                 default:
-                    System.out.println("Enter 1-4");
+                    System.out.println("Incorrect value");
             }
-        } while (choice != 5);
+        } while (choice != 6);
+    }
+
+    public void showCages() {
+        for (Cage c : cages) {
+            System.out.println(c.toString());
+        }
+    }
+
+    public void createCage() {
+        System.out.println("Insert total area, land area, water area and cage name");
+        float totalArea = scanner.nextFloat();
+        float landArea = scanner.nextFloat();
+        float waterArea = scanner.nextFloat();
+        String cageName = scanner.next();
+        Cage newCage = new Cage(totalArea, landArea, waterArea, cageName);
+        if (newCage.isCreateSuccess()) {
+            cages.add(newCage);
+            showCages();
+        }
     }
 
     public void initializeZoo() {
@@ -66,6 +90,8 @@ public class ManageZoo {
         Animal parrot1 = new Parrot("Ava", "22-11-20014", "female", "P01");
         Animal parrot2 = new Parrot("Mia", "06-12-2010", "female", "P02");
         Animal bloodPython = new BloodPython("Sofia", "31-01-2013", "female", "BP01");
+
+
         animals.add(tiger1);
         animals.add(tiger2);
         animals.add(tiger3);
@@ -76,8 +102,10 @@ public class ManageZoo {
         tigerCage.importAnimal(tiger1);
         tigerCage.importAnimal(tiger2);
         tigerCage.importAnimal(tiger3);
+        tigerCage.importAnimal(tiger3);
         parrotCage.importAnimal(parrot1);
         parrotCage.importAnimal(parrot2);
+        bloodPythonCage.importAnimal(bloodPython);
         bloodPythonCage.importAnimal(bloodPython);
 
         for (Cage c : cages) {

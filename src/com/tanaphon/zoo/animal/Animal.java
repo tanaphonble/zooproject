@@ -11,9 +11,17 @@ public abstract class Animal {
     private String dateOfBirth;
     private String gender;
     private String id;
+    private boolean inCage = false;
     // normal 0 - 3 bad
     private int sickLevel = 0;
 
+    public boolean isInCage() {
+        return inCage;
+    }
+
+    public void setInCage(boolean inCage) {
+        this.inCage = inCage;
+    }
 
     public Animal(String name, String dateOfBirth, String gender, String id) {
         this.name = name;
@@ -55,6 +63,7 @@ public abstract class Animal {
     public void defecate() {
         // ถ่ายอุจจาระ
     }
+
 
     public void move() {
         // เคลื่อนที่

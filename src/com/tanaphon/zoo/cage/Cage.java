@@ -9,19 +9,41 @@ import java.util.List;
  * Created by Tanaphon on 7/13/2016.
  */
 public class Cage {
-    private float humidityPercentage;
-    private float temperatureFahrenheit;
+    private static int next_id = 0;
+    private int id;
     private float totalAreaMeterSquare;
     private float landAreaMeterSquare;
     private float waterAreaMeterSquare;
     private int animalNumber = 0;
+    private boolean createSuccess = false;
     private String name;
+
+    public boolean isCreateSuccess() {
+        return createSuccess;
+    }
 
     private List<Animal> animals = new ArrayList<>();
 
-    public void importAnimal(Animal animal) {
-        animals.add(animal);
-        this.animalNumber++;
+    public Cage(float totalAreaMeterSquare, float landAreaMeterSquare, float waterAreaMeterSquare, String cageName) {
+        if (validArea(totalAreaMeterSquare, landAreaMeterSquare, waterAreaMeterSquare)) {
+            this.totalAreaMeterSquare = totalAreaMeterSquare;
+            this.landAreaMeterSquare = landAreaMeterSquare;
+            this.waterAreaMeterSquare = waterAreaMeterSquare;
+            this.name = cageName;
+            this.id = ++next_id;
+            System.out.println(this.name + " is created.");
+            this.createSuccess = true;
+        } else {
+            System.out.println("Can not create cage!");
+        }
+    }
+
+        public void importAnimal(Animal animal) {
+        if (!animal.isInCage()) {
+            animals.add(animal);
+            animal.setInCage(true);
+            this.animalNumber++;
+        }else System.out.println("This animal is in Cage");
     }
 
     // ยังไม่เสร็จ
@@ -30,37 +52,18 @@ public class Cage {
         this.animalNumber -= amount;
     }
 
-    public Cage(float totalAreaMeterSquare, float landAreaMeterSquare, float waterAreaMeterSquare, String cageName) {
-        if (validArea(totalAreaMeterSquare, landAreaMeterSquare, waterAreaMeterSquare)) {
-            this.totalAreaMeterSquare = totalAreaMeterSquare;
-            this.landAreaMeterSquare = landAreaMeterSquare;
-            this.waterAreaMeterSquare = waterAreaMeterSquare;
-            this.name = cageName;
-            System.out.println(this.name + " is created.");
-        } else {
-            System.out.println("Can not create cage!");
-        }
-    }
-
 
     @Override
     public String toString() {
         String member = "";
         int i = 1;
         for (Animal animal : animals) {
-            if (i == animals.size()) member += animal.getName()+"["+animal.getId()+"]";
-            else member += animal.getName() +"["+ animal.getId()+"]" + ", ";
+            if (i == animals.size()) member += animal.getName() + "[" + animal.getId() + "]";
+            else member += animal.getName() + "[" + animal.getId() + "]" + ", ";
             i++;
         }
-        return "Cage : " + name + " [" + member +
+        return "ID : " + id + " Cage : " + name + " [" + member +
                 "]," + " Animal Number = " + animalNumber;
-    }
-
-    public void updateHumidity() {
-
-    }
-
-    public void updateTemperature() {
     }
 
 
@@ -72,23 +75,4 @@ public class Cage {
         return this.name;
     }
 
-    public float getHumidityPercentage() {
-        return humidityPercentage;
-    }
-
-    public float getTemperatureFahrenheit() {
-        return temperatureFahrenheit;
-    }
-
-    public float getTotalAreaMeterSquare() {
-        return totalAreaMeterSquare;
-    }
-
-    public float getLandAreaMeterSquare() {
-        return landAreaMeterSquare;
-    }
-
-    public float getWaterAreaMeterSquare() {
-        return waterAreaMeterSquare;
-    }
 }
