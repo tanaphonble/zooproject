@@ -8,8 +8,6 @@ public abstract class Staff {
     private int id;
     private String name;
     private String gender;
-    private String weight;
-    private String height;
     private String dateOfBirth;
     private String telephoneNumber;
     private int salary;
@@ -21,8 +19,20 @@ public abstract class Staff {
         this.dateOfBirth = dateOfBirth;
         this.telephoneNumber = telephoneNumber;
         this.salary = salary;
+        this.id = ++next_id;
     }
 
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

@@ -1,5 +1,7 @@
 package com.tanaphon.zoo.animal;
 
+import com.tanaphon.zoo.ManageZoo;
+
 import java.util.List;
 
 /**
@@ -28,6 +30,8 @@ public abstract class Animal {
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.id = id;
+        // increase animal number in the zoo
+        ManageZoo.outCage++;
     }
 
     @Override

@@ -5,6 +5,9 @@ import com.tanaphon.zoo.animal.bird.Parrot;
 import com.tanaphon.zoo.animal.mammal.Tiger;
 import com.tanaphon.zoo.animal.reptile.BloodPython;
 import com.tanaphon.zoo.cage.Cage;
+import com.tanaphon.zoo.staff.Cleaner;
+import com.tanaphon.zoo.staff.Doctor;
+import com.tanaphon.zoo.staff.Staff;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +20,10 @@ public class ManageZoo {
     Scanner scanner = new Scanner(System.in);
     public static int inCage = 0;
     public static int outCage = 0;
+    public static int staffNumber = 0;
     private List<Cage> cages = new ArrayList<>();
     private List<Animal> animals = new ArrayList<>();
+    private List<Staff> staffs = new ArrayList<>();
     public List<Cage> getCages() {
         return cages;
     }
@@ -75,14 +80,49 @@ public class ManageZoo {
     }
 
     public void addNewStaff() {
+        System.out.println("Insert name, gender, dateOfBirth, telephoneNumber and salary");
+        String name = scanner.next();
+        String gender = scanner.next();
+        String dateOfBirth = scanner.next();
+        String telephoneNumber = scanner.next();
+        int salary = scanner.nextInt();
+        staffNumber++;
     }
 
-    public void removeStaff(){
+    public void createCage() {
+        System.out.println("Insert total area, land area, water area and cage name");
+        float totalArea = scanner.nextFloat();
+        float landArea = scanner.nextFloat();
+        float waterArea = scanner.nextFloat();
+        String cageName = scanner.next();
+        Cage newCage = new Cage(totalArea, landArea, waterArea, cageName);
+        if (newCage.isCreateSuccess()) {
+            cages.add(newCage);
+            showCages();
+        }
+    }
 
+
+    public void removeStaff(){
+        // ยังไม่เสร็จ
+        // Staff id # int
+
+        int idToRemove = scanner.nextInt();
+        for (Staff staff : staffs){
+            if (staff.getId() == idToRemove){
+                // do something ...
+                staffs.remove(staffs.indexOf(staff.getId()));
+            }
+        }
+        staffNumber--;
+
+        for(Staff staff : staffs){
+            staff.toString();
+        }
     }
 
     public void addNewAnimal(){
-
+        //
     }
 
     public void removeAimal(){
@@ -128,19 +168,6 @@ public class ManageZoo {
         }
     }
 
-    public void createCage() {
-        System.out.println("Insert total area, land area, water area and cage name");
-        float totalArea = scanner.nextFloat();
-        float landArea = scanner.nextFloat();
-        float waterArea = scanner.nextFloat();
-        String cageName = scanner.next();
-        Cage newCage = new Cage(totalArea, landArea, waterArea, cageName);
-        if (newCage.isCreateSuccess()) {
-            cages.add(newCage);
-            showCages();
-        }
-    }
-
     public void destroyCage(){
 
     }
@@ -179,6 +206,9 @@ public class ManageZoo {
         for (Cage c : cages) {
             System.out.println(c.toString());
         }
+
+        Staff staff1 = new Doctor("Olivia", "male", "01-01-1000", "08234",100000);
+        Staff staff2 = new Cleaner("Alfie", "female", "02-02-2000", "08223", 123445);
 
     }
 }
