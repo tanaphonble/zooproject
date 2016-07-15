@@ -49,7 +49,7 @@ public class Cage {
     // ยังไม่เสร็จ
     public void exportAnimal(int amount) {
 
-        this.animalNumber -= amount;
+        //this.animalNumber -= amount;
     }
 
 

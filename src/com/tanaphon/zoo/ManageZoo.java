@@ -27,29 +27,94 @@ public class ManageZoo {
 
     }
 
+    public void cageManager(int choice){
+        // 1 add 2 drop 3 exit
+        switch (choice) {
+            case 1:
+                this.createCage();
+                break;
+            case 2:
+                this.destroyCage();
+                break;
+            case 3:
+                System.exit(0);
+            default:
+                System.out.println("Incorrect value");
+        }
+    }
+
+    public void staffManager(int choice){
+        // 1 add 2 drop 3 exit
+        switch (choice) {
+            case 1:
+                this.addNewStaff();
+                break;
+            case 2:
+                this.removeStaff();
+            case 3:
+                System.exit(0);
+            default:
+                System.out.println("Incorrect value");
+        }
+    }
+
+    public void animalManager(int choice){
+        // 1 add 2 drop 3 exit
+        switch (choice) {
+            case 1:
+                this.addNewAnimal();
+                break;
+            case 2:
+                this.removeAimal();
+                break;
+            case 3:
+                System.exit(0);
+            default:
+                System.out.println("Incorrect value");
+        }
+    }
+
+    public void addNewStaff() {
+    }
+
+    public void removeStaff(){
+
+    }
+
+    public void addNewAnimal(){
+
+    }
+
+    public void removeAimal(){
+
+    }
+
     public void zooManagementSystem() {
         int choice;
         do {
-            System.out.println("1: Create Cage 2: Delete Cage 3: Add Animal 4: Remove Animal 5: About the Zoo 6: Exit");
+            //System.out.println("1: Create Cage 2: Delete Cage 3: Add Animal 4: Remove Animal 5: About the Zoo 6: Exit");
+            System.out.println("1: Staff Manager 2: Animal Manager 3: Cage Manager 4: About the Zoo 5: Exit Program");
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("1");
-                    this.createCage();
+                    System.out.println("1: Add new staff 2: Remove staff 3: Previous menu");
+                    choice = scanner.nextInt();
+                    this.staffManager(choice);
                     break;
                 case 2:
-                    System.out.println("2");
+                    System.out.println("1: Add new cage 2: Destroy cage 3: Previous menu");
+                    choice = scanner.nextInt();
+                    this.cageManager(choice);
                     break;
                 case 3:
-                    System.out.println("3");
+                    System.out.println("1: Add new animal 2: Remove animal 3: Previous menu");
+                    choice = scanner.nextInt();
+                    this.animalManager(choice);
                     break;
                 case 4:
-                    System.out.println("4");
-                    break;
-                case 5:
                     new ZooInformation().about();
                     break;
-                case 6:
+                case 5:
                     System.exit(0);
                 default:
                     System.out.println("Incorrect value");
@@ -76,6 +141,10 @@ public class ManageZoo {
         }
     }
 
+    public void destroyCage(){
+
+    }
+
     public void initializeZoo() {
         Cage tigerCage = new Cage(10, 6, 4, "Tiger Cage");
         Cage parrotCage = new Cage(12, 10, 2, "Parrot Cage");
@@ -90,7 +159,6 @@ public class ManageZoo {
         Animal parrot1 = new Parrot("Ava", "22-11-20014", "female", "P01");
         Animal parrot2 = new Parrot("Mia", "06-12-2010", "female", "P02");
         Animal bloodPython = new BloodPython("Sofia", "31-01-2013", "female", "BP01");
-
 
         animals.add(tiger1);
         animals.add(tiger2);

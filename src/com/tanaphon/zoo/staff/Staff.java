@@ -4,22 +4,25 @@ package com.tanaphon.zoo.staff;
  * Created by Tanaphon on 7/13/2016.
  */
 public abstract class Staff {
+    private static int next_id;
+    private int id;
     private String name;
     private String gender;
     private String weight;
     private String height;
     private String dateOfBirth;
     private String telephoneNumber;
-    private String salary;
-    private String healthStatus;
+    private int salary;
 
-    public String getHealthStatus(){
-        return healthStatus;
+
+    public Staff(String name, String gender, String dateOfBirth, String telephoneNumber, int salary) {
+        this.name = name;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.telephoneNumber = telephoneNumber;
+        this.salary = salary;
     }
 
-    public void setHealthStatus(String healthStatus){
-        this.healthStatus = healthStatus;
-    }
 
     public String getName() {
         return name;
@@ -37,22 +40,6 @@ public abstract class Staff {
         this.gender = gender;
     }
 
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
-    public String getHeight() {
-        return height;
-    }
-
-    public void setHeight(String height) {
-        this.height = height;
-    }
-
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -61,19 +48,11 @@ public abstract class Staff {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-    public String getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 }

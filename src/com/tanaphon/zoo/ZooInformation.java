@@ -6,12 +6,14 @@ package com.tanaphon.zoo;
 public class ZooInformation {
     public static final String ZOO_NAME = "Zooooooooooooooooo";
     public static final String START_DATE = "01-01-1970";
+    public static final String TICKET_PRICE = "9.99$";
     public static final String ZOO_LOCATION = "Thailand";
     public static final String OWNER = "Ble";
 
     public void about(){
         System.out.println("Zoo name is \"" + ZOO_NAME + "\"");
         System.out.println("Start date: "+ START_DATE + " Zoo Location: " + ZOO_LOCATION);
+        System.out.println("Ticket price "+ TICKET_PRICE);
         System.out.println("Zoo owner is "+ OWNER);
     }
 }
